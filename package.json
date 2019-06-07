@@ -14,7 +14,7 @@
 		"onCommand:extension.funHeader",
 		"onCommand:extension.authorHeader"
 	],
-	"main": "./extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
