@@ -1,9 +1,3 @@
-/* 
- * Author:      xiaoming 
- * CreateTime:  Thu, 06 Jun 2019 17:01:05 GMT 
- * LastEditor:  xiaoming 
- * LastTime:    2019/6/8 上午1:54:27 
- * Description: */ 
 {
 	"compilerOptions": {
 		"module": "commonjs",

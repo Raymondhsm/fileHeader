@@ -28,13 +28,12 @@ function activate(context) {
 			const filepath =editor.document.fileName;
 			time = new Date(fs.statSync(filepath).birthtime).toLocaleString()
 			
-			console.log(time)
 		}catch(err){
 			console.log(err.message)
 		}
 
 		let workspaceEdit = new vscode.WorkspaceEdit();
-		workspaceEdit.insert(document.uri,new vscode.Position(0,0),note.noteData(time));
+		workspaceEdit.insert(document.uri,new vscode.Position(0,0),note.noteFileData(time));
 		workspace.applyEdit(workspaceEdit);
 
 		// Display a message box to the user
@@ -42,19 +41,22 @@ function activate(context) {
 	});
 
 	let funHeader = vscode.commands.registerCommand("extension.funHeader", function() {
-		let workspaceEdit = new vscode.WorkspaceEdit();
-
 		let line = editor.selection.active.line;
 
-		
-		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteData());
+		let workspaceEdit = new vscode.WorkspaceEdit();
+		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteFunData());
 		workspace.applyEdit(workspaceEdit);
-
 
 		vscode.window.showInformationMessage('fun');
 	});
 
 	let authorHeader = vscode.commands.registerCommand("extension.authorHeader", function() {
+		let line = editor.selection.active.line;
+		let time = new Date().toLocaleString()
+
+		let workspaceEdit = new vscode.WorkspaceEdit();
+		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteAuthorData(time));
+		workspace.applyEdit(workspaceEdit);
 
 		vscode.window.showInformationMessage('author');
 	});
