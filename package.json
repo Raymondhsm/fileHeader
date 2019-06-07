@@ -4,20 +4,49 @@
 	"description": "to make the file, function, authority header",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": "^1.35.0"
+		"vscode": "^1.34.0"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.fileHeader",
+		"onCommand:extension.funHeader",
+		"onCommand:extension.authorHeader"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.fileHeader",
+				"title": "setFileHeader"
+			},
+
+			{
+				"command": "extension.funHeader",
+				"title": "setFunHeader"
+			},
+
+			{
+				"command": "extension.authorHeader",
+				"title": "setAuthorHeader"
+			}
+		],
+
+		"keybindings": [
+			{
+				"command": "extension.fileHeader",
+				"key": "ctrl+alt+i"
+			},
+	
+			{
+				"command": "extension.funHeader",
+				"key": "ctrl+alt+o"
+			},
+	
+			{
+				"command": "extension.authorHeader",
+				"key": "ctrl+alt+p"
 			}
 		]
 	},
