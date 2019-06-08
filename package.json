@@ -36,19 +36,48 @@
 		"keybindings": [
 			{
 				"command": "extension.fileHeader",
-				"key": "ctrl+alt+i"
+				"key": "ctrl+alt+i",
+				"mac": "ctrl+cmd+i",
+        		"when": "editorTextFocus"
 			},
 	
 			{
 				"command": "extension.funHeader",
-				"key": "ctrl+alt+o"
+				"key": "ctrl+alt+o",
+				"mac": "ctrl+cmd+o",
+      			"when": "editorTextFocus"
 			},
 	
 			{
 				"command": "extension.authorHeader",
-				"key": "ctrl+alt+p"
+				"key": "ctrl+alt+p",
+				"mac": "ctrl+cmd+p",
+        		"when": "editorTextFocus"
 			}
-		]
+		],
+
+		"configuration":{
+			"type": "object",
+			"title": "file header configuration",
+
+			"properties": {
+				"fileheader.userInfo":{
+					"type": "object",
+					"default": {
+						"name": "your name"
+					},
+					"description": "set the user information"
+				},
+
+				"fileheader.projectSetting":{
+					"type":"object",
+					"default":{
+
+					},
+					"description": "set some project selection"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"postinstall": "node ./node_modules/vscode/bin/install",
