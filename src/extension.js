@@ -12,6 +12,7 @@ let workspace = vscode.workspace;
 let env = vscode.env;
 let document = window.activeTextEditor.document;
 let editor = window.activeTextEditor;
+const config = vscode.workspace.getConfiguration('fileheader');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -33,7 +34,7 @@ function activate(context) {
 		}
 
 		let workspaceEdit = new vscode.WorkspaceEdit();
-		workspaceEdit.insert(document.uri,new vscode.Position(0,0),note.noteFileData(time));
+		workspaceEdit.insert(document.uri,new vscode.Position(0,0),note.noteFileData(time,config));
 		workspace.applyEdit(workspaceEdit);
 
 		// Display a message box to the user
@@ -55,7 +56,7 @@ function activate(context) {
 		let time = new Date().toLocaleString()
 
 		let workspaceEdit = new vscode.WorkspaceEdit();
-		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteAuthorData(time));
+		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteAuthorData(time,config));
 		workspace.applyEdit(workspaceEdit);
 
 		vscode.window.showInformationMessage('author');

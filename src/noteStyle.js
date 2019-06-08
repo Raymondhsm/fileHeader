@@ -1,10 +1,10 @@
 
 
-const noteFileData = (time) => {
+const noteFileData = (time,config) => {
     let data = "/* \n"
     data += " * Author:      xiaoming \n"
     data += " * CreateTime:  "+ time +" \n"
-    data += " * LastEditor:  xiaoming \n"
+    data += " * LastEditor:  "+ config.userInfo.name +" \n"
     data += " * LastTime:    "+ new Date().toLocaleString() +" \n"
     data += " * Description: \n"
     data += "*/ \n"
@@ -22,13 +22,13 @@ const noteFunData = () => {
     return data
 }
 
-const noteAuthorData = (time) => {
+const noteAuthorData = (time,config) => {
     let data = "/* \n"
     //功能暂定
     // data += " * Author:      xiaoming \n"
     // data += " * CreateTime:  "+ time +" \n"
-    data += " * LastEditor:  xiaoming \n"
-    data += " * ModifyTime:    "+ new Date().toLocaleString() +" \n"
+    data += " * LastEditor:  "+config.userInfo.name+" \n"
+    data += " * ModifyTime:  "+ new Date().toLocaleString() +" \n"
     data += " * Description: \n"
     data += "*/ \n"
 
