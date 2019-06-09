@@ -1,70 +1,35 @@
-<<<<<<< HEAD
-# fileHeader
-用于添加文件头部、函数、作者注释的vscode的插件
-=======
-# fileHeader README
+# xiaomingHeader 
 
-This is the README for your extension "fileHeader". After writing up a brief description, we recommend including the following sections.
+> 在vscode中用于生成文件头部注释和函数注释的插件。
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 简介
 
-For example if there is an image subfolder under your extension project workspace:
+1. **文件头部添加注释**:
+   
+    * 在文件开头添加注释，记录文件信息
+    * 若文件已有头部注释，调用时会更新
+    * 快捷键：`window`：`ctrl+alt+i`,`mac`：`ctrl+cmd+i`
 
-\!\[feature X\]\(images/feature-x.png\)
+2. **在光标处添加函数头部参数注释**:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+    * 在光标处自动生成一个注释模板，下方有例子
+    * 快捷键：`window`：`ctrl+alt+o`,`mac`：`ctrl+cmd+o`
+    * 快捷键不可用很可能是被占用了
 
-## Requirements
+3. **在光标处添加函数尾部注释**:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+    * 在光标处自动生成一个注释模板，下方有例子
+    * 若光标处[-3,10]行内已有尾部注释，会更新
+    * 快捷键：`window`：`ctrl+alt+p`,`mac`：`ctrl+cmd+p`
 
-## Extension Settings
+## 安装
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+在 Vscode 扩展商店中搜索`xiaomingHeader`,点击安装即可。
 
-For example:
+## 配置
+    * 默认配置:
 
-This extension contributes the following settings:
+    在用户首选项中搜索fileheader，默认配置为：
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
->>>>>>> first commit、
+    "fileheader.userInfo": {} //设置你的名字
