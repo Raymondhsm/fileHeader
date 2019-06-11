@@ -51,7 +51,7 @@ const insertAuthorNote = (time,config) => {
     let data = "/* Function Info \n"
     //功能暂定
     data += " * Author:      "+ config.userInfo.name +" \n"
-    data += " * CreateTime:  "+ time +" \n"
+    data += " * CreateTime:  "+ new Date().toLocaleString() +" \n"
     data += " * LastEditor:  "+config.userInfo.name+" \n"
     data += " * ModifyTime:  "+ new Date().toLocaleString() +" \n"
     data += " * Description: \n"
