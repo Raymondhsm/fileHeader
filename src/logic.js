@@ -62,6 +62,36 @@ const checkFileHasHeader = () => {
     return data;
 }
 
+const checkLine = (lineNum) => {
+    let document = vscode.window.activeTextEditor.document
+    let linetAt = document.lineAt(lineNum); // 获取每行内容
+    let lineNoTrim = linetAt.text; // line 
+    let line = linetAt.text.trim();
+
+    //判断当前行的前缀
+    let str = line.split("@")
+    console.log(str)
+    if(str.length >= 2){
+        if(str[0] === "* " && str[1].startsWith("param")){
+            return {
+                isHas : true,
+                value : "param"
+            }
+        }
+        else if(str[0] === "* " && str[1].startsWith("return")){
+            return {
+                isHas : true,
+                value : "return"
+            }
+        }
+    }
+
+    return {
+        isHas : false,
+        value : ""
+    }
+}
+
 const checkFunHasTail = (lineNum) => {
     let document = vscode.window.activeTextEditor.document
     let inNote = false //判断是否在注释里面
@@ -125,5 +155,6 @@ const checkFunHasTail = (lineNum) => {
 
 module.exports={
     checkFileHasHeader,
+    checkLine,
     checkFunHasTail
 }

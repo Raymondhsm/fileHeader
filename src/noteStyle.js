@@ -1,3 +1,4 @@
+const logic = require("./logic")
 
 const updateFileHeader = (config) => {
     let info = {
@@ -37,15 +38,24 @@ const insertFileHeader = (time,config) => {
     return data
 }
 
-const noteFunData = () => {
-    let data = "/* \n"
-    data += " * @Description: \n"
-    data += " * @param: \n"
-    data += " * @return: \n"
-    data += "*/ \n"
+const noteFunData = (line) => {
+    let data
+    let check = logic.checkLine(line)
+
+    if(check.isHas){
+        data = " * @" + check.value + ": \n"
+    }else{
+        data = "/* \n"
+        data += " * @Description: \n"
+        data += " * @param: \n"
+        data += " * @return: \n"
+        data += "*/ "
+    }
 
     return data
 }
+
+
 
 const insertAuthorNote = (time,config) => {
     let data = "/* Function Info \n"

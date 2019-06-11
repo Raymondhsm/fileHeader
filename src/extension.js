@@ -8,17 +8,19 @@ const logic = require("./logic");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
-let window = vscode.window;
-let workspace = vscode.workspace;
-let env = vscode.env;
-let document = window.activeTextEditor.document;
-let editor = window.activeTextEditor;
-const config = vscode.workspace.getConfiguration('fileheader');
+
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+
+	let window = vscode.window;
+	let workspace = vscode.workspace;
+	let env = vscode.env;
+	let document = window.activeTextEditor.document;
+	let editor = window.activeTextEditor;
+	const config = vscode.workspace.getConfiguration('fileheader');
 
 	console.log('Congratulations, your extension "fileHeader" is now active!');
 
@@ -50,19 +52,16 @@ function activate(context) {
 		}
 		workspace.applyEdit(workspaceEdit);
 
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('file');
 	});
 
 	let funHeader = vscode.commands.registerCommand("extension.funHeader", function() {
+		//获取行号
 		let line = editor.selection.active.line;
 
 		let workspaceEdit = new vscode.WorkspaceEdit();
-		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteFunData());
+		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteFunData(line));
 		workspace.applyEdit(workspaceEdit);
 
-		vscode.window.showInformationMessage('fun');
 	});
 
 	let authorHeader = vscode.commands.registerCommand("extension.authorHeader", function() {
@@ -95,7 +94,6 @@ function activate(context) {
 		}
 		workspace.applyEdit(workspaceEdit);
 
-		vscode.window.showInformationMessage('author');
 	});
 
 	context.subscriptions.push(fileHeader);
