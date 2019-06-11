@@ -10,6 +10,16 @@
 	"categories": [
 		"Other"
 	],
+	"homepage": "https://github.com/Raymondhsm/fileHeader",
+  	"license": "SEE LICENSE IN LICENSE",
+  	"repository": {
+		"type": "git",
+		"url": "https://github.com/Raymondhsm/fileHeader"
+  	},
+	"bugs": {
+		"url": "https://github.com/Raymondhsm/fileHeader/issues"
+	},
+	"icon": "image/icon.jpg",
 	"keywords": [
 		"xiaomingfileheader",
 		"comment",
