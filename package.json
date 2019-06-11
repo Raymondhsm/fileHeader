@@ -2,7 +2,7 @@
 	"name": "fileHeader",
 	"displayName": "xiaomingHeader",
 	"description": "在vscode中用于生成文件头部注释和函数注释的插件,目前仅开发基本功能，敬请期待！",
-  	"version": "1.0.0",
+  	"version": "1.0.1",
   	"publisher": "HSMing",
 	"engines": {
 		"vscode": "^1.34.0"
