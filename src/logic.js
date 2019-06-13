@@ -153,8 +153,41 @@ const checkFunHasTail = (lineNum) => {
     return data;
 }
 
+/* 
+ * @Description: 寻找函数头的参数数量
+ * @param: 行号
+ * @return: 参数数量
+*/ 
+const findFunctionParamNum = (line) => {
+    let document = vscode.window.activeTextEditor.document
+     
+    let linetAt = document.lineAt(line); // 获取每行内容
+    let lineText = linetAt.text; // line 
+
+    //识别行内是否有括号
+    let hasbracket = lineText.indexOf("(")
+    if(hasbracket == -1) return -1;
+
+    //利用左括号分割函数头
+    let strLeft = lineText.split("(")
+    let strMid
+
+    //如果小于2代表没有左括号，没参数，返回0
+    if(strLeft.length < 2)return 0
+    else if(strLeft.length >= 2) strMid = strLeft[strLeft.length - 1]
+
+    //若以右括号开头代表括号内没参数，返回0
+    if(strMid.startsWith(")"))return 0
+    let strRight = strMid.split(")")[0]
+    let num = strRight.split(",").length
+
+    return num
+
+}
+
 module.exports={
     checkFileHasHeader,
     checkLine,
-    checkFunHasTail
+    checkFunHasTail,
+    findFunctionParamNum
 }

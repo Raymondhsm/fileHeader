@@ -57,9 +57,10 @@ function activate(context) {
 	let funHeader = vscode.commands.registerCommand("extension.funHeader", function() {
 		//获取行号
 		let line = editor.selection.active.line;
+		const config = vscode.workspace.getConfiguration('fileheader');
 
 		let workspaceEdit = new vscode.WorkspaceEdit();
-		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteFunData(line));
+		workspaceEdit.insert(document.uri,new vscode.Position(line,0),note.noteFunData(line,config));
 		workspace.applyEdit(workspaceEdit);
 
 	});

@@ -38,7 +38,7 @@ const insertFileHeader = (time,config) => {
     return data
 }
 
-const noteFunData = (line) => {
+const noteFunData = (line,config) => {
     let data
     let check = logic.checkLine(line)
 
@@ -47,7 +47,18 @@ const noteFunData = (line) => {
     }else{
         data = "/* \n"
         data += " * @Description: \n"
-        data += " * @param: \n"
+
+        //根据参数智能生成对应的数量
+        let paramNum = -1
+        if(config.projectSetting.paramNumIntelligence)
+            paramNum = logic.findFunctionParamNum(line + 1)
+
+        if(paramNum == -1) data += " * @param: \n"
+        else {
+            for(let i = 0; i<paramNum ; i++)
+                data += " * @param: \n"
+        }
+
         data += " * @return: \n"
         data += "*/ "
     }

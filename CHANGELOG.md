@@ -1,12 +1,12 @@
-/* File Info 
- * Author:      xiaoming 
- * CreateTime:  2019/6/7 上午1:01:05 
- * LastEditor:  xiaoming 
- * ModifyTime:  2019/6/11 下午9:59:32 
- * Description: 
-*/ 
+
 
 # Change Log
+
+## [V 1.2.0]
+* 提供智能识别函数参数数量，以自动生成“@param”的数量
+* 当满足以下条件时，光标在函数头上一行、函数头仅占一行、参数被最后一个“（）”包括，会触发该功能。
+* 暂时仅能识别一般类型（void fun(...)）
+* 如果出现不可忍受的bug可以在 __配置中"fileheader.projectSetting":{"paramNumIntelligence": true}设置为false__，也可以反馈一下
 
 ## [V 1.1.0]
 * 修改函数尾部作者注释中的创建时间为调用时间
