@@ -14,17 +14,18 @@ const logic = require("./logic");
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	let window = vscode.window;
-	let workspace = vscode.workspace;
-	let env = vscode.env;
-	let document = window.activeTextEditor.document;
-	let editor = window.activeTextEditor;
+	
 	const config = vscode.workspace.getConfiguration('fileheader');
 
 	console.log('Congratulations, your extension "fileHeader" is now active!');
 
 	let fileHeader = vscode.commands.registerCommand('extension.fileHeader', function () {
+
+		let window = vscode.window;
+		let workspace = vscode.workspace;
+		let env = vscode.env;
+		let document = window.activeTextEditor.document;
+		let editor = window.activeTextEditor;
 		
 		// 文件创建时间
 		let time = new Date().toLocaleString()
@@ -55,6 +56,13 @@ function activate(context) {
 	});
 
 	let funHeader = vscode.commands.registerCommand("extension.funHeader", function() {
+
+		let window = vscode.window;
+		let workspace = vscode.workspace;
+		let env = vscode.env;
+		let document = window.activeTextEditor.document;
+		let editor = window.activeTextEditor;
+
 		//获取行号
 		let line = editor.selection.active.line;
 		const config = vscode.workspace.getConfiguration('fileheader');
@@ -66,6 +74,13 @@ function activate(context) {
 	});
 
 	let authorHeader = vscode.commands.registerCommand("extension.authorHeader", function() {
+
+		let window = vscode.window;
+		let workspace = vscode.workspace;
+		let env = vscode.env;
+		let document = window.activeTextEditor.document;
+		let editor = window.activeTextEditor;
+
 		//获取行号
 		let line = editor.selection.active.line;
 

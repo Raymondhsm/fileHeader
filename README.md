@@ -23,6 +23,13 @@
     * 若光标处[-3,10]行内已有尾部注释，会更新
     * 快捷键：`window`：`ctrl+alt+p`,`mac`：`ctrl+cmd+p`
 
+## 特性
+* 提供智能识别函数参数数量，以自动生成“@param”的数量
+* 当满足以下条件时，光标在函数头上一行、函数头仅占一行、参数被最后一个“（）”包括，会触发该功能。
+* 暂时仅能识别一般类型（void fun(...)）
+* 如果出现不可忍受的bug可以在 __配置中"fileheader.projectSetting":{"paramNumIntelligence": true}设置为false__，也可以反馈一下
+* @param和@return智能生成：函数头注释存在时，调用生成函数头注释只会生成当前相同的名称。如当前行为@param，则再次调用后只会在下一行生成@param，方便多个参数需要备注的情况
+
 ## 安装
 
 在 Vscode 扩展商店中搜索`xiaomingHeader`,点击安装即可。
